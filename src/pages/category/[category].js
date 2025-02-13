@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import { getArticlesByCategory } from '../../api/newsApi';
 import ArticleCard from '../../components/ArticleCard';
 import Pagination from '../../components/Pagination';
 import Loading from '../../components/Loading';
@@ -21,9 +21,9 @@ const Category = () => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
-        setArticles(response.data.articles);
-        setTotalPages(Math.ceil(response.data.totalResults / 20)); 
+        const data = await getArticlesByCategory(category);
+        setArticles(data.articles);
+        setTotalPages(Math.ceil(data.totalArticles / 20));
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -39,7 +39,7 @@ const Category = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>{category} News</h1>
+      <h1 className={styles.heading}>Articles in "{category}"</h1>
       <div className={styles.grid}>
         {articles.map((article) => (
           <ArticleCard key={article.url} article={article} />

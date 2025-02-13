@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import { searchArticles } from '../../api/newsApi';
 import ArticleCard from '../../components/ArticleCard';
 import Pagination from '../../components/Pagination';
 import Loading from '../../components/Loading';
@@ -21,9 +21,9 @@ const Search = () => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`newsapi.org/v2/everything?q=${q}&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
-        setArticles(response.data.articles);
-        setTotalPages(Math.ceil(response.data.totalResults / 20)); // Assuming 20 articles per page
+        const data = await searchArticles(q);
+        setArticles(data.articles);
+        setTotalPages(Math.ceil(data.totalArticles / 20));
         setLoading(false);
       } catch (error) {
         setError(error.message);

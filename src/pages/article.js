@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { getTopHeadlines } from '../api/newsApi';
 import ArticleCard from '../components/ArticleCard';
 import Pagination from '../components/Pagination';
 import Loading from '../components/Loading';
@@ -16,9 +16,9 @@ const Home = () => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
-        setArticles(response.data.articles);
-        setTotalPages(Math.ceil(response.data.totalResults / 20)); 
+        const data = await getTopHeadlines(); 
+        setArticles(data.articles);
+        setTotalPages(Math.ceil(data.totalResults / 20));
         setLoading(false);
       } catch (error) {
         setError(error.message);

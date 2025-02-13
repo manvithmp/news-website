@@ -16,7 +16,7 @@ const Article = () => {
         const fetchArticle = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`https://newsapi.org/v2/everything?from=${id}&sortBy=publishedAt&apiKey=be921f7040b44470903d919e65676e25`);
+                const response = await axios.get(`https://gnews.io/api/v4/everything?from=${id}&sortBy=publishedAt&apiKey=d564f39d6c1916192ff167fdd722d823`);
                 setArticle(response.data.articles[0]);
                 setLoading(false);
             } catch (error) {
