@@ -215,10 +215,88 @@ body.dark-mode .search-bar input {
   }
 
   .header .logo {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .category-nav a {
     font-size: 0.875rem;
+  }
+
+  .article-card img {
+    height: 150px;
+  }
+
+  .article-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .article-card p {
+    font-size: 0.875rem;
+  }
+
+  .article-card .read-more {
+    font-size: 0.875rem;
+  }
+
+  .pagination button {
+    padding: 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar input {
+    font-size: 0.75rem;
+  }
+
+  .search-bar button {
+    font-size: 0.75rem;
+  }
+
+  .header .logo {
+    font-size: 1.25rem;
+  }
+
+  .category-nav a {
+    font-size: 0.75rem;
+  }
+
+  .article-card img {
+    height: 100px;
+  }
+
+  .article-card h2 {
+    font-size: 1rem;
+  }
+
+  .article-card p {
+    font-size: 0.75rem;
+  }
+
+  .article-card .read-more {
+    font-size: 0.75rem;
+  }
+
+  .pagination button {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 0.25rem;
   }
 }
