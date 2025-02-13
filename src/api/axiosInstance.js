@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://newsapi.org/v2', 
+  baseURL: 'newsapi.org/v2', 
   headers: {
     'Content-Type': 'application/json',
   },

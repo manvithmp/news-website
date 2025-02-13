@@ -21,7 +21,7 @@ const Search = () => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=${q}&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
+        const response = await axios.get(`newsapi.org/v2/everything?q=${q}&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
         setArticles(response.data.articles);
         setTotalPages(Math.ceil(response.data.totalResults / 20)); // Assuming 20 articles per page
         setLoading(false);
