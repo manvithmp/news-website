@@ -16,7 +16,7 @@ const Article = () => {
         const fetchArticle = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`https://newsapi.org/v2/everything?from=${id}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`);
+                const response = await axios.get(`https://newsapi.org/v2/everything?from=${id}&sortBy=publishedAt&apiKey=be921f7040b44470903d919e65676e25`);
                 setArticle(response.data.articles[0]);
                 setLoading(false);
             } catch (error) {

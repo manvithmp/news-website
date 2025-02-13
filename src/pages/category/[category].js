@@ -23,7 +23,7 @@ const Category = () => {
         setLoading(true);
         const response = await axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${currentPage}&apiKey=be921f7040b44470903d919e65676e25`);
         setArticles(response.data.articles);
-        setTotalPages(Math.ceil(response.data.totalResults / 20)); // Assuming 20 articles per page
+        setTotalPages(Math.ceil(response.data.totalResults / 20)); 
         setLoading(false);
       } catch (error) {
         setError(error.message);
